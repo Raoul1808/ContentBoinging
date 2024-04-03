@@ -5,7 +5,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using UnityEngine;
 
-namespace Boing
+namespace ContentBoinging
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     public class Plugin : BaseUnityPlugin
@@ -18,7 +18,7 @@ namespace Boing
             // Plugin startup logic
             _logger = Logger;
             Log($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
-            var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Boing.boing");
+            var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ContentBoinging.boing");
             var bundle = AssetBundle.LoadFromStream(stream);
             _boing = bundle.LoadAsset<AudioClip>("boing");
             Log(_boing);
