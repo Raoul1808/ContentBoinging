@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -17,7 +18,8 @@ namespace Boing
             // Plugin startup logic
             _logger = Logger;
             Log($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
-            var bundle = AssetBundle.LoadFromFile("/home/mew/boing");
+            var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Boing.boing");
+            var bundle = AssetBundle.LoadFromStream(stream);
             _boing = bundle.LoadAsset<AudioClip>("boing");
             Log(_boing);
             Harmony harmony = new Harmony(PluginInfo.PLUGIN_GUID);

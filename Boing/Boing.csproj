@@ -28,5 +28,6 @@
 
     <ItemGroup>
       <None Remove="boing" />
+      <EmbeddedResource Include="boing" />
     </ItemGroup>
 </Project>
